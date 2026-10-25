@@ -4,6 +4,11 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
+/**
+ * The purpose of this class is to mimic storing the data in actual database or cache.
+ * If we use this as-is in production, this will break because as we are storing all the data in memory,
+ * in an event of a crash, all data will be lost.
+ */
 public class DataStorage {
     // Concurrent: the main loop writes these while producer delivery callbacks
     // remove delivered events from the Kafka I/O and retry threads.
